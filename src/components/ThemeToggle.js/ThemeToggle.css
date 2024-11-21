@@ -1,0 +1,99 @@
+/* src/components/ThemeToggle.css */
+.theme-toggle-container {
+    position: absolute; /* Keeps the button in view */
+    top: 25px; /* Adjust the top position */
+    right: 100px; /* Adjust the right position */
+    z-index: 1000; /* Ensures the button is above other elements */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px; /* Width of the icon container */
+    height: 50px; /* Height of the icon container */
+    background-color: transparent; /* Background color of the container */
+    border-radius: 50%; /* Rounded corners */
+    transition: background-color 0.3s;
+}
+
+.theme-icon {
+    font-size: 35px; /* Size of the icons */
+    transition: color 0.3s, transform 0.5s, opacity 0.5s;
+}
+
+.sun-icon {
+    color: #ffff; /* Color of the sun icon */
+    animation: rotateSun 0.5s ease-in-out;
+}
+
+.moon-icon {
+    color: #000000; /* Color of the moon icon */
+    animation: rotateSun 0.5s ease-in-out;
+}
+
+.theme-toggle-container:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* Hover effect */
+}
+
+@keyframes rotateSun {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes slideFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Styles for Mobile Screens */
+@media (max-width: 600px) {
+    .theme-toggle-container {
+        top: 35px; /* Adjusted for smaller screens */
+        right: 65px; /* Adjusted for smaller screens */
+        width: 30px; /* Smaller width for mobile */
+        height: 30px; /* Smaller height for mobile */
+    }
+
+    .theme-icon {
+        font-size: 24px; /* Smaller icon size for mobile */
+    }
+
+    .sun-icon {
+        animation: rotateSunMobile 0.5s ease-in-out; /* Adjusted animation for mobile */
+        color: #ffffff;
+    }
+
+    .moon-icon {
+        animation: rotateSun 0.5s ease-in-out; /* Adjusted animation for mobile */
+        color: black;
+    }
+}
+
+@keyframes rotateSunMobile {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(180deg); /* Half rotation for mobile for faster effect */
+    }
+}
+
+@keyframes slideFadeInMobile {
+    from {
+        opacity: 0;
+        transform: translateY(-5px); /* Smaller slide for mobile */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
